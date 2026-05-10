@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moyenne L2 Electromecanique - USTO-MB</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">Σ</div>
+        <div>
+          <h1>Moyenne L2 Electromécanique</h1>
+          <p>USTO-MB · Licence 2 · Semestres 3 et 4</p>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="ghost-button" id="reset" type="button">Réinitialiser</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="calculator" aria-label="Calculateur de moyenne">
+        <div class="tabs" role="tablist" aria-label="Semestres">
+          <button class="tab active" type="button" role="tab" aria-selected="true" data-semester="s3">
+            Semestre 3
+          </button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-semester="s4">
+            Semestre 4
+          </button>
+        </div>
+
+        <div class="table-shell">
+          <table>
+            <thead>
+              <tr>
+                <th>Module</th>
+                <th>Crédit</th>
+                <th>Coeff.</th>
+                <th>TD / TP</th>
+                <th>Examen</th>
+                <th>Note retenue</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody id="module-rows"></tbody>
+            <tfoot>
+              <tr>
+                <td id="semester-label" data-label="Total">Total Semestre 3</td>
+                <td id="semester-credits" data-label="Crédit">30</td>
+                <td id="semester-coefficients" data-label="Coeff.">17</td>
+                <td></td>
+                <td></td>
+                <td id="semester-average" data-label="Moyenne">0,00</td>
+                <td id="semester-points" data-label="Points">0,00</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="helper-row">
+          <p id="semester-help">
+            Saisis TD/TP et Examen. Le calcul est mis à jour automatiquement.
+          </p>
+          <label class="check">
+            <input id="show-missing" type="checkbox" />
+            Ignorer les modules vides
+          </label>
+        </div>
+
+        <section class="results" aria-label="Résultats">
+          <article class="result-card blue">
+            <h2>Résumé semestres</h2>
+            <div class="line">
+              <span>Moyenne S3</span>
+              <strong id="s3-average">0,00 /20</strong>
+            </div>
+            <div class="line">
+              <span>Moyenne S4</span>
+              <strong id="s4-average">0,00 /20</strong>
+            </div>
+          </article>
+
+          <article class="result-card teal">
+            <h2>Moyenne annuelle</h2>
+            <strong class="big" id="year-average">0,00</strong>
+            <p>/20 · coefficient total <span id="year-coefficients">34</span></p>
+          </article>
+
+          <article class="result-card amber">
+            <h2>Décision</h2>
+            <strong class="decision" id="decision">À compléter</strong>
+            <p id="decision-detail">Entre les notes pour obtenir une estimation.</p>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <footer class="footer">Créé par Hamza Yacine</footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
